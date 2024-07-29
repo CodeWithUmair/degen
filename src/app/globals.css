@@ -1,0 +1,543 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: #fff;
+  background: #000000fa;
+}
+
+.shadow-effect {
+  position: relative;
+  height: 300px;
+  width: 300px;
+  pointer-events: none;
+}
+
+.gradient-border {
+  border-width: 1px;
+  border-style: solid;
+  border-image: radial-gradient(circle, #f8a55f, #e43345, #cb4cc4);
+  border-image-slice: 1;
+}
+
+.shadow-effect::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* control the spread */
+  z-index: -1; /* place the element behind */
+  background: radial-gradient(circle, #f8a55f, #e43345, #cb4cc4);
+  /* your gradient here */
+  border-radius: 50%;
+}
+
+.red-shadow {
+  filter: drop-shadow(0 0 50px #c91d1d99);
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Light.woff2");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Regular.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Medium.woff2");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Bold.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi/Satoshi-Black.woff2");
+  font-weight: 900;
+}
+
+@layer utilities {
+  .sec-p-y {
+    @apply py-14 md:py-24;
+  }
+
+  .sec-gap {
+    @apply gap-6 md:gap-12 lg:gap-32;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-[#ffffff08] to-[#FFFFFF11];
+  }
+}
+
+@layer components {
+  .text-gradient-sm {
+    @apply bg-gradient-to-br from-[#F8A55F] via-[#E43345] to-[#CB4CC4] bg-clip-text text-transparent;
+  }
+
+  .border-muted {
+    @apply border border-[.73px] border-[#595959];
+  }
+
+  .bg-primary-gradient {
+    @apply bg-gradient-to-br from-[#F8A55F] via-[#E43345] via-[#E43345] to-[#CB4CC4];
+  }
+
+  .bg-dark-gradient {
+    @apply bg-gradient-to-b from-[#2A2A2A] to-[#25252580];
+  }
+}
+
+.apexcharts-title-text {
+  display: none;
+}
+
+.custom-tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(95%);
+  margin: auto;
+  width: 6px;
+  height: 6px;
+  background-color: #000;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+}
+
+.main-title {
+  line-height: 1.25em !important;
+}
+
+.chain-link {
+  position: relative;
+}
+
+.chain-link::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+.chain-link:hover::after,
+.chain-link.active::after {
+  background-image: linear-gradient(to bottom right, #f8a55f, #e43345, #cb4cc4);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 900;
+}
+
+/* For Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #2a2a2a; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the thumb */
+  border-radius: 6px; /* Rounded corners of the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the thumb on hover */
+}
+
+.nft-filter-scrollbar {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 275px;
+  max-height: 275px;
+
+  /* &::-webkit-scrollbar {
+    width: 8px; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; 
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 6px; 
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+  } */
+}
+
+.nft-filter-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+.nft-filter-scrollbar::-webkit-scrollbar {
+  background: transparent; /* Color of the track */
+}
+.nft-filter-scrollbar::-webkit-scrollbar {
+  background-color: #888; /* Color of the thumb */
+  border-radius: 6px; /* Rounded corners of the thumb */
+}
+.nft-filter-scrollbar::-webkit-scrollbar {
+  background-color: #555;
+}
+
+div.scrollUM {
+  margin: 4px, 4px;
+  padding: 4px;
+  background-color: green;
+  width: 500px;
+  height: 110px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.borderGrid-item {
+  position: relative;
+}
+
+.borderGrid-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 1px;
+  height: 100%;
+  background-color: #ffffff66;
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+.mix-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.mix-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(50%);
+}
+
+#SvgjsSvg1193 {
+  overflow: visible;
+}
+foreignObject {
+  overflow: visible;
+}
+
+.lineChartStyle,
+.apexcharts-menu-item {
+  color: #000;
+}
+
+.apexcharts-inner {
+  background-image: url("../../public/images/moola-token/line-chart-bg.png") !important;
+}
+
+.filter-white {
+  filter: brightness(0) invert(1);
+}
+
+/* Tooltip Arrow */
+.tooltip-arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(14 1 10 / 32%),
+    rgba(134, 58, 92, 0.24)
+  );
+  bottom: -5px; /* Position it right above the tooltip */
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.tooltip-arrow-icon {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(
+    to bottom right,
+    rgb(14 1 10 / 32%),
+    rgba(134, 58, 92, 0.24)
+  );
+  bottom: 28px; /* Position it right above the tooltip */
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+#react_apex_chart .apexcharts-canvas svg {
+  background-color: transparent !important;
+}
+
+#react_apex_chart .apexcharts-canvas .lineChartstyle {
+  background: linear-gradient(
+    135deg,
+    rgba(129, 17, 66, 0.8) 0%,
+    rgba(134, 58, 92, 0.7) 100%
+  );
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  border: none;
+}
+
+#react_apex_chart .apexcharts-canvas .lineChartstyle .apexcharts-tooltip-title {
+  font-size: 14px;
+  margin-bottom: 5px;
+  background-color: transparent;
+}
+
+#react_apex_chart
+  .apexcharts-canvas
+  .lineChartstyle
+  .apexcharts-tooltip-series-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+#react_apex_chart .apexcharts-canvas .lineChartstyle .apexcharts-marker {
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+#react_apex_chart .apexcharts-canvas .lineChartstyle .apexcharts-tooltip-text {
+  font-size: 13px;
+}
+
+#react_apex_chart
+  .apexcharts-canvas
+  .lineChartstyle
+  .apexcharts-tooltip-series-group:last-child {
+  margin-bottom: 0;
+}
+
+.top-right-shadow {
+  box-shadow: 0px -60px 110px rgba(0, 0, 0, 1);
+}
+
+.top-right-shadow-2 {
+  box-shadow: -1px -200px 400px 76px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px -200px 400px 76px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px -200px 400px 76px rgba(0, 0, 0, 0.75);
+}
+
+.chart-container .recharts-layer {
+  position: relative !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-shadow:
+    0 0 30px rgba(255, 0, 0, 0.5),
+    0 0 60px rgba(255, 0, 0, 0.3),
+    0 0 90px rgba(255, 0, 0, 0.1) !important;
+  border-radius: 50% !important;
+  background: #000 !important; /* Ensure the background color contrasts with the shadow */
+}
+
+.chart-container-DOOM {
+  background-image: url("/41.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.text-gradient {
+  background: linear-gradient(110deg, #f8a55f, #e43345);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-border-2 {
+  position: relative;
+  padding: 15px 40px;
+  background-color: transparent; /* Transparent background */
+  border-radius: 50px; /* Adjust border radius as needed */
+  z-index: 1;
+}
+
+.gradient-border-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px; /* Same border radius */
+  padding: 1px; /* Border width */
+  background: linear-gradient(
+    to right,
+    #f8a55f,
+    #e43345,
+    #cb4cc4
+  ); /* Gradient border */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.timer-gradient {
+  border: 1px solid #151313;
+  position: relative;
+  border-radius: 14px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(129, 17, 66, 0.34),
+    rgba(134, 58, 92, 0.24)
+  );
+}
+
+.timer-gradient::before {
+  content: "";
+  position: absolute;
+  top: -2px; /* Adjust based on border thickness */
+  left: -2px; /* Adjust based on border thickness */
+  right: -2px; /* Adjust based on border thickness */
+  bottom: -2px; /* Adjust based on border thickness */
+  background: linear-gradient(to right, #f8a55f, #e43345, #cb4cc4);
+  z-index: -1;
+  border-radius: 14px; /* Adjust border radius */
+}
+
+.timer-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #151313; /* Inner background color */
+  border-radius: 14px; /* Adjust border radius */
+  z-index: -1;
+}
+
+.barChartBorder {
+  border: 1px solid #151313;
+  position: relative;
+  border-radius: 15px;
+  min-width: 200px;
+  padding: 20px;
+  background-color: #3f1c29;
+}
+
+.barChartBorder::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(to right, #ed6859, #d34ea6);
+  z-index: -1;
+  border-radius: 15px;
+}
+
+.barChartBorder::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent;
+  z-index: -2;
+}
+
+.gradient-border-og {
+  position: relative;
+  padding: 30px 40px;
+  background-color: transparent; /* Transparent background */
+  border-radius: 20px; /* Adjust border radius as needed */
+  z-index: 1;
+}
+
+.gradient-border-og-2 {
+  position: relative;
+  padding: 50px 30px;
+  background-color: transparent; /* Transparent background */
+  border-radius: 20px; /* Adjust border radius as needed */
+  z-index: 1;
+}
+
+.gradient-border-og::before,
+.gradient-border-og-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px; /* Same border radius */
+  padding: 1px; /* Border width */
+  background: linear-gradient(
+    to right,
+    #f8a55f,
+    #e43345,
+    #cb4cc4
+  ); /* Gradient border */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.gradient-border-top-bottom {
+  background:
+    linear-gradient(to right, #ff7e5f, #feb47b) 0 0 no-repeat,
+    linear-gradient(to right, #ff7e5f, #feb47b) 0 100% no-repeat;
+  background-size: 100% 0.8px; /* Adjust the height of the "border" here */
+  border: none; /* Remove any existing border */
+  padding: 10px 0; /* Adjust padding to match the height of the border */
+  padding-left: 20px; /* Adjust padding to match desired padding */
+  padding-right: 20px; /* Adjust padding to match desired padding */
+  position: relative;
+  font-size: 16px; /* Adjust font size */
+  text-align: center; /* Center text */
+}
